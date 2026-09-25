@@ -1,1 +1,19 @@
-# gestion-de-inventario-
+
+```
+python main.py
+```
+
+#4. Usuario de prueba Encargado: cuenta `admin`, contrasena `1234`.
+#5. Usuario de prueba Estudiante: id `ES01`, contrasena `1234`.
+
+
+## Estructura del proyecto
+
+- #`encargado.py` - clase Encargado
+- #`estudiante.py` - clase Estudiante
+- #`equipo.py` - clase Equipo
+- #`prestamo.py` - clase Prestamo
+- #`inventario.py` - clase Inventario (logica del sistema y persistencia)
+- #`main.py` - menu principal del programa
+
+
