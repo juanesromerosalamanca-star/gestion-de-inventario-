@@ -1,1 +1,122 @@
+Algoritmo GestionInventario
 
+	// Definición de capacidades máximas
+	Capacidad <- 50
+	
+	// Vectores para la entidad EQUIPO
+	Dimension eq_id[Capacidad]
+	Dimension eq_nombre[Capacidad]
+	Dimension eq_categoria[Capacidad]
+	Dimension eq_cantidad[Capacidad]
+	Dimension eq_estado[Capacidad]
+	cant_equipos <- 0
+
+	// Vectores para la entidad ESTUDIANTE
+	Dimension est_id[Capacidad]
+	Dimension est_estado[Capacidad]
+	Dimension est_contrasena[Capacidad]
+	Dimension est_correo[Capacidad]
+	Dimension est_rol[Capacidad]
+	Dimension est_telefono[Capacidad]
+	cant_estudiantes <- 0
+
+	// Vectores para la entidad ENCARGADO
+	Dimension enc_id[Capacidad]
+	Dimension enc_cuenta[Capacidad]
+	Dimension enc_contrasena[Capacidad]
+	Dimension enc_correo[Capacidad]
+	Dimension enc_rol[Capacidad]
+	cant_encargados <- 0
+
+	// Vectores para la entidad PRESTAMO
+	Dimension pres_id[Capacidad]
+	Dimension pres_id_equipo[Capacidad]
+	Dimension pres_id_estudiante[Capacidad]
+	Dimension pres_fecha[Capacidad]
+	Dimension pres_estado[Capacidad]
+	cant_prestamos <- 0
+
+
+
+	// Inicializar Equipos por defecto si no hay registrados
+	Si cant_equipos = 0 Entonces
+		// E01
+		cant_equipos <- cant_equipos + 1
+		eq_id[cant_equipos] <- "E01"
+		eq_nombre[cant_equipos] <- "Multimetro Digital"
+		eq_categoria[cant_equipos] <- "Medicion"
+		eq_cantidad[cant_equipos] <- 5
+		eq_estado[cant_equipos] <- "Disponible"
+
+		// E02
+		cant_equipos <- cant_equipos + 1
+		eq_id[cant_equipos] <- "E02"
+		eq_nombre[cant_equipos] <- "Osciloscopio"
+		eq_categoria[cant_equipos] <- "Medicion"
+		eq_cantidad[cant_equipos] <- 3
+		eq_estado[cant_equipos] <- "Disponible"
+		
+		// E03
+		cant_equipos <- cant_equipos + 1
+		eq_id[cant_equipos] <- "E03"
+		eq_nombre[cant_equipos] <- "Fuente de Poder DC"
+		eq_categoria[cant_equipos] <- "Alimentacion"
+		eq_cantidad[cant_equipos] <- 4
+		eq_estado[cant_equipos] <- "Disponible"
+	FinSi
+
+	// Inicializar Encargado Admin por defecto
+	Si cant_encargados = 0 Entonces
+		cant_encargados <- cant_encargados + 1
+		enc_id[cant_encargados] <- "EN01"
+		enc_cuenta[cant_encargados] <- "admin"
+		enc_contrasena[cant_encargados] <- "1234"
+		enc_correo[cant_encargados] <- "admin@lab.com"
+		enc_rol[cant_encargados] <- "Encargado"
+	FinSi
+
+
+
+	Escribir "--- INVENTARIO CARGADO CORRECTAMENTE ---"
+	Escribir "Total de Equipos: ", cant_equipos
+	Escribir "Total de Encargados: ", cant_encargados
+	Escribir ""
+
+	// 1. Consultar / Buscar Equipo (Función buscar_equipo)
+	Escribir "Buscando equipo E02..."
+	id_buscar <- "E02"
+	posicion_encontrada <- 0
+
+	Para i <- 1 Hasta cant_equipos Hacer
+		Si eq_id[i] = id_buscar Entonces
+			posicion_encontrada <- i
+		FinSi
+	FinPara
+
+	Si posicion_encontrada > 0 Entonces
+		Escribir "Equipo Encontrado: ", eq_nombre[posicion_encontrada], " | Categoria: ", eq_categoria[posicion_encontrada], " | Cantidad: ", eq_cantidad[posicion_encontrada]
+	Sino
+		Escribir "ERROR: Equipo no encontrado"
+	FinSi
+
+	// 2. Registrar un Estudiante
+	cant_estudiantes <- cant_estudiantes + 1
+	est_id[cant_estudiantes] <- "EST101"
+	est_estado[cant_estudiantes] <- "Activo"
+	est_contrasena[cant_estudiantes] <- "pass123"
+	est_correo[cant_estudiantes] <- "estudiante@correo.com"
+	est_rol[cant_estudiantes] <- "Estudiante"
+	est_telefono[cant_estudiantes] <- "555-1234"
+
+	// 3. Registrar un Préstamo (Función registrar_prestamo / solicitar_prestamo)
+	cant_prestamos <- cant_prestamos + 1
+	pres_id[cant_prestamos] <- "P001"
+	pres_id_equipo[cant_prestamos] <- "E02"
+	pres_id_estudiante[cant_prestamos] <- "EST101"
+	pres_fecha[cant_prestamos] <- "2026-10-02"
+	pres_estado[cant_prestamos] <- "Prestado"
+
+	Escribir ""
+	Escribir "Prestamo registrado con ID: ", pres_id[cant_prestamos], " para el estudiante ", pres_id_estudiante[cant_prestamos]
+
+FinAlgoritmo
