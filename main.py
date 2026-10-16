@@ -1,4 +1,7 @@
-
+from encargado import Encargado
+from estudiante import Estudiante
+from equipo import Equipo
+from inventario import Inventario
 
 inventario = Inventario()
 inventario.cargar_equipos("equipos.txt")
