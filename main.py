@@ -41,7 +41,8 @@ while True:
     print("")
     print("1. Ingresar como Encargado")
     print("2. Ingresar como Estudiante")
-    print("3. Salir")
+    print("3. Registrarse como nuevo Estudiante")
+    print("4. Salir")
     opcion = input("Seleccione una opcion: ")
 
     if opcion == "1":
@@ -153,6 +154,16 @@ while True:
                     print("Opcion invalida")
 
     elif opcion == "3":
+        print("\n--- Registro de Nuevo Estudiante ---")
+        id_estudiante = input("Ingrese su ID o Documento: ")
+        contrasena = input("Ingrese la contraseña que desea utilizar: ")
+        correo = input("Ingrese su correo electrónico: ")
+        telefono = input("Ingrese su número de teléfono: ")
+        
+        resultado = inventario.registrar_estudiante(id_estudiante, contrasena, correo, telefono)
+        print(resultado)
+
+    elif opcion == "4":
         inventario.guardar_equipos("equipos.txt")
         inventario.guardar_estudiantes("estudiantes.txt")
         inventario.guardar_encargados("encargados.txt")
