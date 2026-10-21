@@ -1,3 +1,4 @@
+Python
 from equipo import Equipo
 from estudiante import Estudiante
 from encargado import Encargado
@@ -5,7 +6,7 @@ from prestamo import Prestamo
 
 
 class Inventario:
-    def _init_(self):
+    def __init__(self):
         self.equipos = []
         self.estudiantes = []
         self.encargados = []
@@ -167,6 +168,14 @@ class Inventario:
             if estudiante.id == id_estudiante:
                 estudiante_encontrado = estudiante
         return estudiante_encontrado
+
+    def registrar_estudiante(self, id_estudiante, contrasena, correo, telefono):
+        for estudiante in self.estudiantes:
+            if estudiante.id == id_estudiante:
+                return "ERROR: El estudiante ya se encuentra registrado."
+        nuevo_estudiante = Estudiante(id_estudiante, "Activo", contrasena, correo, "Estudiante", telefono)
+        self.estudiantes.append(nuevo_estudiante)
+        return "Estudiante registrado exitosamente."
 
     def solicitar_prestamo(self, id_estudiante, id_equipo, fecha):
         return self.registrar_prestamo(id_equipo, id_estudiante, fecha)
