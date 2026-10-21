@@ -1,5 +1,5 @@
 class Estudiante:
-    def _init_(self, id, estado, contrasena, correo, rol, telefono):
+    def __init__(self, id, estado, contrasena, correo, rol, telefono):
         self.id = id
         self.estado = estado
         self.contrasena = contrasena
