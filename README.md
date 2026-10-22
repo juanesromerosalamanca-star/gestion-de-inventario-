@@ -3,21 +3,37 @@ Software para la gestion del inventario de un laboratorio de electronica. Permit
 
 Como ejecutar
 Tener Python instalado.
+
 Ubicar todos los archivos .py en la misma carpeta.
+
 Ejecutar:
+
 python main.py
+
 Usuario de prueba Encargado: cuenta admin, contrasena 1234.
+
 Usuario de prueba Estudiante: id ES01, contrasena 1234.
+
 Al iniciar el programa por primera vez se crean automaticamente 20 equipos del laboratorio, un encargado y un estudiante de prueba.
+
 Al salir con la opcion 3 del menu principal, todo se guarda en los archivos equipos.txt, estudiantes.txt, encargados.txt y prestamos.txt.
+
 Estructura del proyecto
+
 encargado.py - clase Encargado
+
 estudiante.py - clase Estudiante
+
 equipo.py - clase Equipo
+
 prestamo.py - clase Prestamo
+
 inventario.py - clase Inventario (logica del sistema y persistencia)
+
 main.py - menu principal del programa
+
 Diagrama de casos de uso
+
 graph LR
     Encargado((Encargado))
     Estudiante((Estudiante))
@@ -31,6 +47,7 @@ graph LR
     Estudiante --> UC7([Actualizar informacion])
     Estudiante --> UC8([Consultar estado de prestamo])
 Diagrama de clases
+
 classDiagram
     class Encargado {
         +id
@@ -80,6 +97,7 @@ classDiagram
     Inventario --> "many" Encargado
     Inventario --> "many" Prestamo
 Diagrama de secuencia - Solicitar prestamo
+
 sequenceDiagram
     participant Estudiante
     participant Inventario
@@ -93,6 +111,7 @@ sequenceDiagram
     Prestamo-->>Inventario: prestamo creado
     Inventario-->>Estudiante: confirmacion del prestamo
 Diagrama de secuencia - Registrar devolucion
+
 sequenceDiagram
     participant Encargado
     participant Inventario
