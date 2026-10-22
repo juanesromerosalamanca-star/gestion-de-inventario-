@@ -1,122 +1,170 @@
-Algoritmo GestionInventario
-
-	// Definición de capacidades máximas
-	Capacidad <- 50
-	
-	// Vectores para la entidad EQUIPO
-	Dimension eq_id[Capacidad]
-	Dimension eq_nombre[Capacidad]
-	Dimension eq_categoria[Capacidad]
-	Dimension eq_cantidad[Capacidad]
-	Dimension eq_estado[Capacidad]
-	cant_equipos <- 0
-
-	// Vectores para la entidad ESTUDIANTE
-	Dimension est_id[Capacidad]
-	Dimension est_estado[Capacidad]
-	Dimension est_contrasena[Capacidad]
-	Dimension est_correo[Capacidad]
-	Dimension est_rol[Capacidad]
-	Dimension est_telefono[Capacidad]
-	cant_estudiantes <- 0
-
-	// Vectores para la entidad ENCARGADO
-	Dimension enc_id[Capacidad]
-	Dimension enc_cuenta[Capacidad]
-	Dimension enc_contrasena[Capacidad]
-	Dimension enc_correo[Capacidad]
-	Dimension enc_rol[Capacidad]
-	cant_encargados <- 0
-
-	// Vectores para la entidad PRESTAMO
-	Dimension pres_id[Capacidad]
-	Dimension pres_id_equipo[Capacidad]
-	Dimension pres_id_estudiante[Capacidad]
-	Dimension pres_fecha[Capacidad]
-	Dimension pres_estado[Capacidad]
-	cant_prestamos <- 0
-
-
-
-	// Inicializar Equipos por defecto si no hay registrados
-	Si cant_equipos = 0 Entonces
-		// E01
-		cant_equipos <- cant_equipos + 1
-		eq_id[cant_equipos] <- "E01"
-		eq_nombre[cant_equipos] <- "Multimetro Digital"
-		eq_categoria[cant_equipos] <- "Medicion"
-		eq_cantidad[cant_equipos] <- 5
-		eq_estado[cant_equipos] <- "Disponible"
-
-		// E02
-		cant_equipos <- cant_equipos + 1
-		eq_id[cant_equipos] <- "E02"
-		eq_nombre[cant_equipos] <- "Osciloscopio"
-		eq_categoria[cant_equipos] <- "Medicion"
-		eq_cantidad[cant_equipos] <- 3
-		eq_estado[cant_equipos] <- "Disponible"
-		
-		// E03
-		cant_equipos <- cant_equipos + 1
-		eq_id[cant_equipos] <- "E03"
-		eq_nombre[cant_equipos] <- "Fuente de Poder DC"
-		eq_categoria[cant_equipos] <- "Alimentacion"
-		eq_cantidad[cant_equipos] <- 4
-		eq_estado[cant_equipos] <- "Disponible"
-	FinSi
-
-	// Inicializar Encargado Admin por defecto
-	Si cant_encargados = 0 Entonces
-		cant_encargados <- cant_encargados + 1
-		enc_id[cant_encargados] <- "EN01"
-		enc_cuenta[cant_encargados] <- "admin"
-		enc_contrasena[cant_encargados] <- "1234"
-		enc_correo[cant_encargados] <- "admin@lab.com"
-		enc_rol[cant_encargados] <- "Encargado"
-	FinSi
-
-
-
-	Escribir "--- INVENTARIO CARGADO CORRECTAMENTE ---"
-	Escribir "Total de Equipos: ", cant_equipos
-	Escribir "Total de Encargados: ", cant_encargados
-	Escribir ""
-
-	// 1. Consultar / Buscar Equipo (Función buscar_equipo)
-	Escribir "Buscando equipo E02..."
-	id_buscar <- "E02"
-	posicion_encontrada <- 0
-
-	Para i <- 1 Hasta cant_equipos Hacer
-		Si eq_id[i] = id_buscar Entonces
-			posicion_encontrada <- i
-		FinSi
-	FinPara
-
-	Si posicion_encontrada > 0 Entonces
-		Escribir "Equipo Encontrado: ", eq_nombre[posicion_encontrada], " | Categoria: ", eq_categoria[posicion_encontrada], " | Cantidad: ", eq_cantidad[posicion_encontrada]
-	Sino
-		Escribir "ERROR: Equipo no encontrado"
-	FinSi
-
-	// 2. Registrar un Estudiante
-	cant_estudiantes <- cant_estudiantes + 1
-	est_id[cant_estudiantes] <- "EST101"
-	est_estado[cant_estudiantes] <- "Activo"
-	est_contrasena[cant_estudiantes] <- "pass123"
-	est_correo[cant_estudiantes] <- "estudiante@correo.com"
-	est_rol[cant_estudiantes] <- "Estudiante"
-	est_telefono[cant_estudiantes] <- "555-1234"
-
-	// 3. Registrar un Préstamo (Función registrar_prestamo / solicitar_prestamo)
-	cant_prestamos <- cant_prestamos + 1
-	pres_id[cant_prestamos] <- "P001"
-	pres_id_equipo[cant_prestamos] <- "E02"
-	pres_id_estudiante[cant_prestamos] <- "EST101"
-	pres_fecha[cant_prestamos] <- "2026-10-02"
-	pres_estado[cant_prestamos] <- "Prestado"
-
-	Escribir ""
-	Escribir "Prestamo registrado con ID: ", pres_id[cant_prestamos], " para el estudiante ", pres_id_estudiante[cant_prestamos]
-
-FinAlgoritmo
+Proceso SistemaInventarioLaboratorio
+    Definir opcion, sub_opcion Como Entero
+    Definir total_estudiantes Como Entero
+    
+    // Arreglos para almacenar estudiantes (Simulando la base de datos)
+    Definir ids_estudiantes, contrasenas_estudiantes, correos_estudiantes, telefonos_estudiantes Como Caracter
+    Dimension ids_estudiantes[100]
+    Dimension contrasenas_estudiantes[100]
+    Dimension correos_estudiantes[100]
+    Dimension telefonos_estudiantes[100]
+    
+    // Variables auxiliares para búsqueda y validación
+    Definir id_ingresado, pass_ingresado, correo_nuevo, telefono_nuevo Como Caracter
+    Definir encontrado Como Logico
+    Definir i, pos Como Entero
+    
+    // Inicializar con un estudiante por defecto (igual que en tu Python)
+    total_estudiantes <- 1
+    ids_estudiantes[1] <- "ES01"
+    contrasenas_estudiantes[1] <- "1234"
+    correos_estudiantes[1] <- "estudiante1@correo.com"
+    telefonos_estudiantes[1] <- "3001234567"
+    
+    Repetir
+        Escribir ""
+        Escribir "1. Ingresar como Encargado"
+        Escribir "2. Ingresar como Estudiante"
+        Escribir "3. Registrarse como nuevo Estudiante"
+        Escribir "4. Salir"
+        Escribir "Seleccione una opcion: "
+        Leer opcion
+        
+        Segun opcion Hacer
+            1:
+                // --- LOGIN ENCARGADO (Simplificado de prueba) ---
+                Definir cuenta, pass_enc Como Caracter
+                Escribir "Cuenta: "
+                Leer cuenta
+                Escribir "Contrasena: "
+                Leer pass_enc
+                
+                Si cuenta == "admin" Y pass_enc == "1234" Entonces
+                    Repetir
+                        Escribir ""
+                        Escribir "--- MENU ENCARGADO ---"
+                        Escribir "1. Consultar estudiante"
+                        Escribir "2. Volver"
+                        Escribir "Seleccione una opcion: "
+                        Leer sub_opcion
+                        
+                        Segun sub_opcion Hacer
+                            1:
+                                Escribir "Id del estudiante a consultar: "
+                                Leer id_ingresado
+                                encontrado <- Falso
+                                Para i <- 1 Hasta total_estudiantes Hacer
+                                    Si ids_estudiantes[i] == id_ingresado Entonces
+                                        encontrado <- Verdadero
+                                        pos <- i
+                                    FinSi
+                                FinPara
+                                
+                                Si encontrado Entonces
+                                    Escribir "Id: ", ids_estudiantes[pos]
+                                    Escribir "Correo: ", correos_estudiantes[pos]
+                                    Escribir "Telefono: ", telefonos_estudiantes[pos]
+                                Sino
+                                    Escribir "Estudiante no encontrado"
+                                FinSi
+                            2:
+                                // Salir al menú principal
+                            De Otro Modo:
+                                Escribir "Opcion invalida"
+                        FinSegun
+                    Hasta Que sub_opcion == 2
+                Sino
+                    Escribir "Cuenta o contrasena incorrecta"
+                FinSi
+                
+            2:
+                // --- LOGIN ESTUDIANTE ---
+                Escribir "Id de estudiante: "
+                Leer id_ingresado
+                Escribir "Contrasena: "
+                Leer pass_ingresado
+                
+                encontrado <- Falso
+                Para i <- 1 Hasta total_estudiantes Hacer
+                    Si ids_estudiantes[i] == id_ingresado Y contrasenas_estudiantes[i] == pass_ingresado Entonces
+                        encontrado <- Verdadero
+                        pos <- i
+                    FinSi
+                ParaFin
+                
+                Si Falso Entonces // Corrección sintáctica del bucle anterior en PSeInt
+                FinSi
+                
+                // Validación real de búsqueda
+                encontrado <- Falso
+                Para i <- 1 Hasta total_estudiantes Hacer
+                    Si ids_estudiantes[i] == id_ingresado Y contrasenas_estudiantes[i] == pass_ingresado Entonces
+                        encontrado <- Verdadero
+                        pos <- i
+                    EndSi
+                FinPara
+                
+                Si encontrado Entonces
+                    Repetir
+                        Escribir ""
+                        Escribir "--- MENU ESTUDIANTE ---"
+                        Escribir "1. Consultar mis datos"
+                        Escribir "2. Volver"
+                        Escribir "Seleccione una opcion: "
+                        Leer sub_opcion
+                        
+                        Segun sub_opcion Hacer
+                            1:
+                                Escribir "Id: ", ids_estudiantes[pos]
+                                Escribir "Correo: ", correos_estudiantes[pos]
+                                Escribir "Telefono: ", telefonos_estudiantes[pos]
+                            2:
+                                // Volver
+                            De Otro Modo:
+                                Escribir "Opcion invalida"
+                        FinSegun
+                    Hasta Que sub_opcion == 2
+                Sino
+                    Escribir "Cuenta o contrasena incorrecta"
+                FinSi
+                
+            3:
+                // --- REGISTRAR NUEVO ESTUDIANTE ---
+                Escribir ""
+                Escribir "--- Registro de Nuevo Estudiante ---"
+                Escribir "Ingrese su ID o Documento: "
+                Leer id_ingresado
+                
+                // Verificar si ya existe
+                encontrado <- Falso
+                Para i <- 1 Hasta total_estudiantes Hacer
+                    Si ids_estudiantes[i] == id_ingresado Entonces
+                        encontrado <- Verdadero
+                    FinSi
+                FinPara
+                
+                Si encontrado Entonces
+                    Escribir "ERROR: El estudiante ya se encuentra registrado."
+                Sino
+                    total_estudiantes <- total_estudiantes + 1
+                    ids_estudiantes[total_estudiantes] <- id_ingresado
+                    
+                    Escribir "Ingrese la contraseña que desea utilizar: "
+                    Leer contrasenas_estudiantes[total_estudiantes]
+                    
+                    Escribir "Ingrese su correo electrónico: "
+                    Leer correos_estudiantes[total_estudiantes]
+                    
+                    Escribir "Ingrese su número de teléfono: "
+                    Leer telefonos_estudiantes[total_estudiantes]
+                    
+                    Escribir "Estudiante registrado exitosamente."
+                FinSi
+                
+            4:
+                Escribir "Datos guardados. Hasta luego."
+            De Otro Modo:
+                Escribir "Opcion invalida"
+        FinSegun
+    Hasta Que opcion == 4
+FinProceso
