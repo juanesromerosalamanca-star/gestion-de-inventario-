@@ -22,8 +22,11 @@ python main.py
 
 
 Estructura del proyecto
+
 encargado.py - clase Encargado
+
 estudiante.py - clase Estudiante
+
 equipo.py - clase Equipo
 
 prestamo.py - clase Prestamo
