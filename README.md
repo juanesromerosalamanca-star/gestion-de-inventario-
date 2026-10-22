@@ -10,20 +10,20 @@ Ejecutar:
 
 python main.py
 
-Usuario de prueba Encargado: cuenta admin, contrasena 1234.
+*Usuario de prueba Encargado: cuenta admin, contrasena 1234.
 
-Usuario de prueba Estudiante: id ES01, contrasena 1234.
+*Usuario de prueba Estudiante: id ES01, contrasena 1234.
 
-Al iniciar el programa por primera vez se crean automaticamente 20 equipos del laboratorio, un encargado y un estudiante de prueba.
+*Al iniciar el programa por primera vez se crean automaticamente 20 equipos del laboratorio, un encargado y un estudiante de prueba.
 
-Al salir con la opcion 3 del menu principal, todo se guarda en los archivos equipos.txt, estudiantes.txt, encargados.txt y prestamos.txt.
+*Al salir con la opcion 3 del menu principal, todo se guarda en los archivos equipos.txt, estudiantes.txt, encargados.txt y prestamos.txt.
+
+
+
 
 Estructura del proyecto
-
 encargado.py - clase Encargado
-
 estudiante.py - clase Estudiante
-
 equipo.py - clase Equipo
 
 prestamo.py - clase Prestamo
