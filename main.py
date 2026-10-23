@@ -1,4 +1,4 @@
-from encargado import Administrador
+from Administrador import Administrador
 from estudiante import Estudiante
 from equipo import Equipo
 from inventario import Inventario
