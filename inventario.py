@@ -1,7 +1,7 @@
 
 from equipo import Equipo
 from estudiante import Estudiante
-from encargado import Administrador
+from Administrador import Administrador
 from prestamo import Prestamo
 
 
