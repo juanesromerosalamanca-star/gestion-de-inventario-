@@ -1,7 +1,7 @@
-Python
+
 from equipo import Equipo
 from estudiante import Estudiante
-from encargado import Encargado
+from encargado import Administrador
 from prestamo import Prestamo
 
 
