@@ -1,9 +1,7 @@
-
-from equipo import Equipo
-from estudiante import Estudiante
 from Administrador import Administrador
+from equipo import Equipo
+from estudiante import estudiante
 from prestamo import Prestamo
-
 
 class Inventario:
     def __init__(self):
@@ -53,7 +51,7 @@ class Inventario:
             correo = archivo_estudiantes.readline()
             rol = archivo_estudiantes.readline()
             telefono = archivo_estudiantes.readline()
-            estudiante = Estudiante(id_estudiante.strip(), estado.strip(), contrasena.strip(), correo.strip(), rol.strip(), telefono.strip())
+            estudiante = estudiante(id_estudiante.strip(), estado.strip(), contrasena.strip(), correo.strip(), rol.strip(), telefono.strip())
             self.estudiantes.append(estudiante)
         archivo_estudiantes.close()
 
@@ -81,7 +79,8 @@ class Inventario:
             contrasena = archivo_encargados.readline()
             correo = archivo_encargados.readline()
             rol = archivo_encargados.readline()
-            encargado = Encargado(id_encargado.strip(), cuenta.strip(), contrasena.strip(), correo.strip(), rol.strip())
+            # Corregido para usar Administrador en lugar de Encargado
+            encargado = Administrador(id_encargado.strip(), cuenta.strip(), contrasena.strip(), correo.strip(), rol.strip())
             self.encargados.append(encargado)
         archivo_encargados.close()
 
@@ -164,16 +163,17 @@ class Inventario:
 
     def consultar_estudiante(self, id_estudiante):
         estudiante_encontrado = None
-        for estudiante in self.estudiantes:
-            if estudiante.id == id_estudiante:
-                estudiante_encontrado = estudiante
+        for est in self.estudiantes:
+            if est.id == id_estudiante:
+                estudiante_encontrado = est
         return estudiante_encontrado
 
     def registrar_estudiante(self, id_estudiante, contrasena, correo, telefono):
-        for estudiante in self.estudiantes:
-            if estudiante.id == id_estudiante:
+        # Se usa 'est' para evitar conflictos con la clase Estudiante
+        for est in self.estudiantes:
+            if est.id == id_estudiante:
                 return "ERROR: El estudiante ya se encuentra registrado."
-        nuevo_estudiante = Estudiante(id_estudiante, "Activo", contrasena, correo, "Estudiante", telefono)
+        nuevo_estudiante = estudiante(id_estudiante, "Activo", contrasena, correo, "Estudiante", telefono)
         self.estudiantes.append(nuevo_estudiante)
         return "Estudiante registrado exitosamente."
 
