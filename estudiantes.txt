@@ -1,0 +1,6 @@
+ES01
+Activo
+1234
+estudiante1@correo.com
+Estudiante
+3001234567

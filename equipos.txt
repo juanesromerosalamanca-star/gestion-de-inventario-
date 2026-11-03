@@ -1,0 +1,50 @@
+E01
+Multimetro Digital
+Medicion
+5
+Disponible
+E02
+Osciloscopio
+Medicion
+3
+Disponible
+E03
+Fuente de Poder DC
+Alimentacion
+4
+Disponible
+E04
+Generador de Funciones
+Medicion
+2
+Disponible
+E05
+Protoboard
+Montaje
+10
+Disponible
+E06
+Soldador de Estano
+Herramienta
+6
+Disponible
+E07
+Pinza Amperimetrica
+Medicion
+3
+Disponible
+E08
+Kit de Resistencias
+Componentes
+15
+Disponible
+E09
+Kit de Capacitores
+Componentes
+15
+Disponible
+E10
+Kit de Transistores NPN
+Componentes
+10
+Disponible
