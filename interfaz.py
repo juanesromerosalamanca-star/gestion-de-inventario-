@@ -6,6 +6,7 @@ from Administrador import Administrador
 from equipo import Equipo
 from Estudiante import Estudiante
 from inventario import Inventario
+from registro_estudiante import registro_estudiante
 
 
 class SistemaInventarioApp:
