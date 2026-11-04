@@ -47,7 +47,7 @@ Estructura de clases, atributos, métodos y relaciones principales del proyecto:
 ### Diagrama de Secuencia
 Flujo detallado para el registro de préstamos, validación de stock y devoluciones:
 <p align="center">
-  <img src="diagrama_de_secuencia.jpg" alt="Diagrama de Secuencia" width="700">
+  <img src="diagrama_de_secuencia.png" alt="Diagrama de Secuencia" width="700">
 </p>
 
 ---
@@ -78,7 +78,7 @@ clave:
 
 
 ### 6.si es nuevo usuario 
-seleccione crear un nuevo usuario y llene los datossoliitados 
+seleccione crear un nuevo usuario y llene los datos soliitados 
 
 ```bash
 git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/tu-usuario/tu-repositorio.git)
