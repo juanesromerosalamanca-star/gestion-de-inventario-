@@ -5,7 +5,7 @@ from tkinter import messagebox, ttk
 from Administrador import Administrador
 from equipo import Equipo
 from Estudiante import Estudiante
-
+from inventario import Inventario
 
 
 class SistemaInventarioApp:
