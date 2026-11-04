@@ -62,6 +62,24 @@ Asegúrate de tener instalado:
 
 ### 2. Clonar el Repositorio
 Abre tu terminal y ejecuta el siguiente comando:
+
+
+###3. elegir una opcion de la interfaz 
+entre admin y estudiante
+
+
+### 4. datos admin
+nombre: admin
+clave: 1234
+
+### 5. datos estudiante
+nombre:
+clave:
+
+
+### 6.si es nuevo usuario 
+seleccione crear un nuevo usuario y llene los datossoliitados 
+
 ```bash
 git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/tu-usuario/tu-repositorio.git)
 cd tu-repositorio
