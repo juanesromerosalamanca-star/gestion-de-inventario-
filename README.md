@@ -70,15 +70,17 @@ entre admin y estudiante
 
 ### 4. datos admin
 nombre: admin
+
 clave: 1234
 
 ### 5. datos estudiante
-nombre:
-clave:
+nombre:esteban
+
+clave:esteban
 
 
 ### 6.si es nuevo usuario 
-seleccione crear un nuevo usuario y llene los datos soliitados 
+pidale al administrador que le ayude es el unico autorizado para crear un nuevo usuario 
 
 ```bash
 git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/tu-usuario/tu-repositorio.git)
